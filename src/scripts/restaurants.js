@@ -18,14 +18,14 @@ const Restaurants = () => {
                             <img src="${resto.pictureId}" alt="Gambar makanan ${resto.name}">
                         </div>
                         <div class="card-body">
-                            <h3 class="card-title">
-                                <a href="/restaurant/${resto.id}" title="Link ke halaman detail makanan">${resto.name}</a>
-                            </h3>
-                            <p class="card-text">${resto.description}</p>
                             <div class="rating">
                                 <i class="fas fa-star"></i>
                                 <span>${resto.rating}</span>
                             </div>
+                            <h3 class="card-title">
+                                <a href="/restaurant/${resto.id}" title="Link ke halaman detail makanan">${resto.name}</a>
+                            </h3>
+                            <p class="card-text">${resto.description}</p>
                         </div>
                     </div>
                 </div>

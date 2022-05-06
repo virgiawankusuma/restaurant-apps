@@ -43,6 +43,26 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.skip-link {
+    position: absolute;
+    text-decoration: none;
+    top: -40px;
+    left: 0;
+    background-color: #C36A2D;
+    color: #FBFBFB;
+    padding: 8px;
+    z-index: 101;
+}
+
+.skip-link:hover {
+    color: #EADCA6;
+}
+
+
+.skip-link:focus {
+    top: 0;
+}
+
 header {
     display: inline;
 }
@@ -55,7 +75,7 @@ nav {
     height: auto;
     width: 100%;
     justify-content: space-between;
-    z-index: 999;
+    z-index: 100;
 }
 
 nav h1 {
@@ -207,13 +227,13 @@ main {
 
 .card-text {
     color: #C36A2D;
-    margin-bottom: 16px;
 }
 
 .card .rating {
     color: #C36A2D;
-    font-size: .9rem;
+    font-size: 1rem;
     font-weight: 600;
+    margin-bottom: .5em;
 }
 
 footer {
