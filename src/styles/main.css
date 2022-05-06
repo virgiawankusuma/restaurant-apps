@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
 
 /* 
-
+Color Palette:
 #1 #C36A2D
 #2 #E2C275
 #3 #EADCA6
 #4 #FBFBFB
-
 */
 
 /* css reset */
@@ -15,7 +14,6 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-    /* border: 1px solid; */
 }
 
 h1,

@@ -1,5 +1,8 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
+import Restaurants from './restaurants';
+
+document.addEventListener("DOMContentLoaded", Restaurants);
 
 const nav = document.querySelector("#nav");
 
