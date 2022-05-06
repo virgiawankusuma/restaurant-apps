@@ -1,4 +1,5 @@
 # for production
+dist/
 specs/
 src/
 README.md
