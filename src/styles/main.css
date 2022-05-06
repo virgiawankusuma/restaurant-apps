@@ -74,10 +74,6 @@ nav h1 a {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 7px 0px;
 }
 
-.mobile {
-    display: none !important;
-}
-
 .menu-list {
     font-size: 18px;
     margin: 24px 0;
@@ -155,8 +151,23 @@ main {
     width: 100%;
 }
 
-img {
-    display: block;
+footer {
+    text-align: center;
+    color: #FBFBFB;
+    background-color: #C36A2D;
+    font-weight: bold;
+    padding: 7vh 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: #FBFBFB;
+}
+
+footer a:hover,
+footer a:active {
+    text-decoration: none;
+    color: #EADCA6;
 }
 
 
