@@ -23,7 +23,7 @@ const Restaurants = () => {
                                 <span>${resto.rating}</span>
                             </div>
                             <h3 class="card-title">
-                                <a href="/restaurant/${resto.id}" title="Link ke halaman detail makanan">${resto.name}</a>
+                                <a href="./restaurant/${resto.id}" title="Link ke halaman detail makanan">${resto.name}</a>
                             </h3>
                             <p class="card-text">${resto.description}</p>
                         </div>
