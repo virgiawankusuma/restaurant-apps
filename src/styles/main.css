@@ -57,6 +57,7 @@ nav {
     height: auto;
     width: 100%;
     justify-content: space-between;
+    z-index: 999;
 }
 
 nav h1 {
@@ -108,32 +109,58 @@ nav h1 a {
     display: none;
 }
 
+.hero {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-color: #000;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+    opacity: .5;
+}
+
+.hero .inner {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 32px;
+    z-index: 2;
+}
+
+.hero .title {
+    color: #FBFBFB;
+    font-weight: 600;
+    font-size: 48px;
+}
+
+.hero .subtitle {
+    color: #FBFBFB;
+    margin-top: 10px;
+    font-size: 28px;
+}
+
+main {
+    margin: 32px 32px 0;
+}
+
+#content {
+    width: 100%;
+}
+
 img {
     display: block;
 }
 
 
 @media (max-width: 800px) {
-    nav h1 {
-        font-size: larger;
-    }
-
-    article h3 {
-        font-size: 20px;
-    }
-
-    section {
-        margin-bottom: 30px;
-    }
-
-    .mobile {
-        display: block !important;
-    }
-
-    .desktop {
-        display: none !important;
-    }
-
     .menu-list {
         margin: 20px 0;
         font-size: medium;
@@ -142,59 +169,27 @@ img {
     .menu-list li {
         margin-left: 0;
     }
-
-    .jumbotron {
-        text-align: center;
-        margin-top: 0;
-        flex-direction: column-reverse;
-    }
-
-    .jumbotron .left .title {
-        font-size: x-large;
-    }
-
-    button.button-primary {
-        margin: 20px auto;
-    }
-
-    .flex-row {
-        text-align: center;
-        display: block;
-        width: 100%;
-    }
-
-    .flex-column {
-        display: block;
-        width: 100%;
-        padding: 5px 16px;
-    }
-
-    form div.flex-column {
-        padding: 0px 8% 26px 8%;
-    }
-
-    #profil section div {
-        margin: 0 0 0 0;
-    }
-
-    #biodata {
-        padding: 0px 0% 26px 0%;
-    }
-
-    #biodata img {
-        border-radius: 100%;
-        width: 35%;
-    }
 }
 
 @media (max-width: 600px) {
+    body {
+        background-color: #000;
+    }
+
     nav {
         padding: 0 46px;
     }
 
+    .hero .title {
+        font-size: 36px;
+    }
+
+    .hero .subtitle {
+        font-size: 24px;
+    }
+
     .menu-list {
         background-color: #E2C275;
-        /* background-color: rgba(180, 197, 228, 0.9); */
         fill-opacity: 0.5;
         position: fixed;
         top: 0;
@@ -207,7 +202,6 @@ img {
         align-items: flex-end;
         transform: translateX(100%);
         transition: transform 0.5s;
-        /* border: 200px solid; */
     }
 
     .menu-list li {
