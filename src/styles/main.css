@@ -147,10 +147,12 @@ main {
 
 #content {
     width: 100%;
+    margin-top: 1em;
 }
 
 #content h2 {
     text-align: center;
+    margin-bottom: 1em;
 }
 
 .title-content {
@@ -167,11 +169,14 @@ main {
 .col {
     width: calc(100% / 3 - 16px);
     margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
 }
 
 .card {
     background-color: #FBFBFB;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 7px 0px;
+    flex: 1;
 }
 
 .card .city-label {
