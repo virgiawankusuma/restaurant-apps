@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
 
+/* 
+
+#1 #C36A2D
+#2 #E2C275
+#3 #EADCA6
+#4 #FBFBFB
+
+*/
+
 /* css reset */
 * {
     box-sizing: border-box;
@@ -7,10 +16,6 @@
     padding: 0;
     scroll-behavior: smooth;
     /* border: 1px solid; */
-}
-
-body {
-    background-color: #FBFBFB;
 }
 
 h1,
@@ -24,14 +29,234 @@ h6 {
 }
 
 a {
-    color: #EADCA6;
+    color: #E2C275;
 }
 
 a:hover,
 a:active {
+    color: #C36A2D;
+}
+
+body {
+    width: 100%;
+    background-color: #FBFBFB;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    display: inline;
+}
+
+nav {
+    position: fixed;
+    background-color: #FBFBFB;
+    display: flex;
+    padding: 0 64px;
+    height: auto;
+    width: 100%;
+    justify-content: space-between;
+}
+
+nav h1 {
+    margin: 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav h1 a {
+    text-decoration: none;
+}
+
+.shadow-bottom {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 7px 0px;
+}
+
+.mobile {
+    display: none !important;
+}
+
+.menu-list {
+    font-size: 18px;
+    margin: 24px 0;
+    display: flex;
+}
+
+.menu-list li {
+    padding: 0 0 0 10px;
+    margin-left: 10px;
+    list-style-type: none;
+    display: inline-block;
+}
+
+.menu-list a {
     color: #E2C275;
+    text-decoration: none;
+}
+
+.menu-list a:hover,
+.menu-list a:active {
+    font-weight: bold;
+    transition: ease-out;
+    transition-duration: 0.2s;
+    border-bottom: 2px solid #E2C275;
+    color: #C36A2D;
+}
+
+.menu-button {
+    display: none;
 }
 
 img {
     display: block;
+}
+
+
+@media (max-width: 800px) {
+    nav h1 {
+        font-size: larger;
+    }
+
+    article h3 {
+        font-size: 20px;
+    }
+
+    section {
+        margin-bottom: 30px;
+    }
+
+    .mobile {
+        display: block !important;
+    }
+
+    .desktop {
+        display: none !important;
+    }
+
+    .menu-list {
+        margin: 20px 0;
+        font-size: medium;
+    }
+
+    .menu-list li {
+        margin-left: 0;
+    }
+
+    .jumbotron {
+        text-align: center;
+        margin-top: 0;
+        flex-direction: column-reverse;
+    }
+
+    .jumbotron .left .title {
+        font-size: x-large;
+    }
+
+    button.button-primary {
+        margin: 20px auto;
+    }
+
+    .flex-row {
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+
+    .flex-column {
+        display: block;
+        width: 100%;
+        padding: 5px 16px;
+    }
+
+    form div.flex-column {
+        padding: 0px 8% 26px 8%;
+    }
+
+    #profil section div {
+        margin: 0 0 0 0;
+    }
+
+    #biodata {
+        padding: 0px 0% 26px 0%;
+    }
+
+    #biodata img {
+        border-radius: 100%;
+        width: 35%;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 0 46px;
+    }
+
+    .menu-list {
+        background-color: #E2C275;
+        /* background-color: rgba(180, 197, 228, 0.9); */
+        fill-opacity: 0.5;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        margin-top: 0;
+        padding: 64px 46px;
+        flex-direction: column;
+        align-items: flex-end;
+        transform: translateX(100%);
+        transition: transform 0.5s;
+        /* border: 200px solid; */
+    }
+
+    .menu-list li {
+        font-size: x-large;
+        padding: 10px 0;
+    }
+
+    .menu-list a {
+        color: #FBFBFB;
+    }
+
+    .open .menu-list {
+        transform: translateX(0);
+    }
+
+    .menu-button {
+        margin: auto 0;
+        padding: -32px;
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 3px;
+        background-color: #FBFBFB;
+        color: #C36A2D;
+        outline: none;
+        font-size: larger;
+        display: block;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    .menu i.fa-times,
+    .menu.open i.fa-bars {
+        display: none;
+        animation: enter 0.8s;
+    }
+
+    .menu.open i.fa-times,
+    .menu i.fa-bars {
+        display: block;
+        animation: enter 0.8s;
+    }
+
+    .menu-list a:hover,
+    .menu-list a:active {
+        font-weight: bold;
+        transition: ease-out;
+        transition-duration: 0.2s;
+        border-bottom: 2px solid #C36A2D;
+        color: #C36A2D;
+    }
 }
