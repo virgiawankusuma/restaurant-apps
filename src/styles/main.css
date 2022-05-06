@@ -86,6 +86,7 @@ nav h1 {
 
 nav h1 a {
     text-decoration: none;
+    font-size: 2rem;
 }
 
 .shadow-bottom {
@@ -220,7 +221,7 @@ main {
 }
 
 .card-title a {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     text-decoration: none;
 }
@@ -301,11 +302,11 @@ footer a:active {
     }
 
     .menu-list li {
-        font-size: 1.5rem;
         padding: 10px 0;
     }
 
     .menu-list a {
+        font-size: 2.1rem;
         color: #FBFBFB;
     }
 
@@ -315,15 +316,14 @@ footer a:active {
 
     .menu-button {
         margin: auto 0;
-        padding: -32px;
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
         border: 0;
         border-radius: 3px;
         background-color: #FBFBFB;
         color: #E2C275;
         outline: none;
-        font-size: 1.2rem;
+        font-size: 2rem;
         display: block;
         z-index: 2;
         cursor: pointer;
