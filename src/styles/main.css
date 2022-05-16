@@ -89,6 +89,10 @@ nav h1 a {
     font-size: 2rem;
 }
 
+nav a:hover{
+    background-color: #FBFBFB !important;
+}
+
 .shadow-bottom {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 7px 0px;
 }
