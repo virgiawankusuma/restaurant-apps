@@ -1,3 +1,5 @@
+import routes from '../routes/routes';
+import UrlParser from '../routes/url-parser';
 import DrawerInit from '../utils/drawer-init';
 
 class App {
@@ -19,6 +21,13 @@ class App {
       drawer: this._drawer,
       content: this._content,
     });
+  }
+
+  async renderPage() {
+    const url = UrlParser.parseActiveUrlWithCombiner();
+    const page = routes[url];
+    this._content.innerHTML = await page.render();
+    await page.afterRender();
   }
 }
 
