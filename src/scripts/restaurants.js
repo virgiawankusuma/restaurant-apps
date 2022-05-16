@@ -1,12 +1,12 @@
 const Restaurants = () => {
-    import('../DATA.json').then(({
-        default: jsonData,
-    }) => {
-        const restaurants = jsonData.restaurants;
-        let restoList = '';
-        restaurants.forEach((resto) => {
-            restoList +=
-                `
+  import('../DATA.json').then(({
+    default: jsonData,
+  }) => {
+    const { restaurants } = jsonData;
+    let restoList = '';
+    restaurants.forEach((resto) => {
+      restoList
+                += `
                 <div class="col">
                     <div class="card">
                         <div class="card-img">
@@ -30,9 +30,9 @@ const Restaurants = () => {
                     </div>
                 </div>
                 `;
-        });
-        document.querySelector('#resto-list').innerHTML = restoList;
     });
-}
+    document.querySelector('#resto-list').innerHTML = restoList;
+  });
+};
 
 export default Restaurants;
