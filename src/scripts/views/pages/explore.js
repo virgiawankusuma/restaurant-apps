@@ -1,5 +1,5 @@
 import RestaurantSource from '../../data/restaurant-source';
-import createRestoItemTemplate from '../templates/template-creator';
+import { createRestoItemTemplate } from '../templates/template-creator';
 
 const Explore = {
   async render() {

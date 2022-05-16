@@ -198,6 +198,40 @@ main {
     flex-direction: column;
 }
 
+.detail {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: 32px auto ;
+}
+
+.detail .title {
+    font-size: 2.25rem;
+    font-weight: 800;
+}
+
+.detail img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.detail .info,
+.detail .overview
+{
+    margin-top: 16px;
+}
+
+.detail .info ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail .info ul li {
+    margin-bottom: 8px;
+}
+
 .card {
     background-color: #FBFBFB;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 7px 0px;
