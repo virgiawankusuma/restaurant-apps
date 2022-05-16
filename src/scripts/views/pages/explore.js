@@ -1,4 +1,3 @@
-import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurant-source';
 
 const Explore = {
@@ -11,9 +10,8 @@ const Explore = {
   },
 
   async afterRender() {
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantSource.detailResto(url.id);
-    console.log(restaurant);
+    const restaurants = await RestaurantSource.getResto();
+    console.log(restaurants);
   },
 };
 
