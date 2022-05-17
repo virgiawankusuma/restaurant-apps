@@ -9,7 +9,7 @@
     "test": "karma start"
   },
   "keywords": [],
-  "author": "your_name <your.email@domain.com>",
+  "author": "virgiawan",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",

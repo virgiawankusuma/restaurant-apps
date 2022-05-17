@@ -6,10 +6,10 @@ const CacheHelper = {
     cache.addAll(requests);
   },
 
-  async deleteCache() {
+  async deleteOldCache() {
     const cacheNames = await caches.keys();
     cacheNames
-      .filter((name) => name !== CONFIG.CACHE_NAME)
+      .filter((name) => name !== 'RestoFinder-V1')
       .map((filteredName) => caches.delete(filteredName));
   },
 
