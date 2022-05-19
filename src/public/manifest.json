@@ -2,7 +2,7 @@
   "name": "Restaurant App Finder",
   "short_name": "Resto Finder",
   "description": "Find the best Restaurant in your area",
-  "start_url": "/index.html",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#FBFBFB",
   "theme_color": "#E2C275",
