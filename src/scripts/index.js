@@ -5,6 +5,10 @@ import '../styles/responsive.css';
 import App from './views/app';
 import swRegister from './utils/sw-register';
 
+// import component
+import './component/app-bar';
+import './component/app-hero';
+
 const app = new App({
   button: document.querySelector('.menu-button'),
   drawer: document.querySelector('#nav'),

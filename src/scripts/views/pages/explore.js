@@ -1,14 +1,12 @@
 import RestaurantSource from '../../data/restaurant-source';
 import { createRestoItemTemplate } from '../templates/template-creator';
 
+import '../../component/resto-list';
+
 const Explore = {
   async render() {
     return `
-      <h2>
-        <span class="title-content">Explore Restaurant</span>
-      </h2>
-
-      <div id="resto-list" class="row"></div>
+      <resto-list></resto-list>
     `;
   },
 

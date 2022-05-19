@@ -1,14 +1,12 @@
 import FavoriteRestaurantDB from '../../data/favoriterestaurant-db';
 import { createRestoItemTemplate } from '../templates/template-creator';
 
+import '../../component/resto-favorite';
+
 const Favorite = {
   async render() {
     return `
-      <h2>
-        <span class="title-content">Favorite Restaurant</span>
-      </h2>
-
-      <div id="resto-list" class="row"></div>
+      <resto-favorite></resto-favorite>
     `;
   },
 

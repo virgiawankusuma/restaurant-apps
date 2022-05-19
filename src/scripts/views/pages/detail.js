@@ -3,15 +3,12 @@ import RestaurantSource from '../../data/restaurant-source';
 import { createRestoDetailTemplate } from '../templates/template-creator';
 import FavoriteButtonInitiator from '../../utils/favorite-btn-initiator';
 
+import '../../component/resto-detail';
+
 const Explore = {
   async render() {
     return `
-      <h2>
-        <span class="title-content">Detail Restaurant</span>
-      </h2>
-
-      <div id="resto-detail" class="row"></div>
-      <div id="favoriteButtonContainer"></div>
+      <resto-detail></resto-detail>
     `;
   },
 
