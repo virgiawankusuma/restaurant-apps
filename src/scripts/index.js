@@ -1,23 +1,24 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
-import Restaurants from './restaurants';
+import '../styles/responsive.css';
+import App from './views/app';
+import swRegister from './utils/sw-register';
 
-document.addEventListener("DOMContentLoaded", Restaurants);
+// import component
+import './component/app-bar';
+import './component/app-hero';
 
-const nav = document.querySelector("#nav");
-
-window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-    if (scrollY < 20) {
-        nav.classList.remove("shadow-bottom");
-    } else {
-        nav.classList.add("shadow-bottom");
-    }
+const app = new App({
+  button: document.querySelector('.menu-button'),
+  drawer: document.querySelector('#nav'),
+  content: document.querySelector('#content'),
 });
 
-const menu = document.querySelector(".menu");
-const menuButton = document.querySelector(".menu-button");
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
 
-menuButton.addEventListener("click", () => {
-    menu.classList.toggle("open");
+window.addEventListener('load', () => {
+  app.renderPage();
+  swRegister();
 });
