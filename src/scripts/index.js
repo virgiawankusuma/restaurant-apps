@@ -7,6 +7,7 @@ import swRegister from './utils/sw-register';
 // import component
 import './component/app-bar';
 import './component/app-hero';
+import './component/app-footer';
 
 const app = new App({
   button: document.querySelector('.menu-button'),
