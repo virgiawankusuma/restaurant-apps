@@ -103,7 +103,7 @@
         width: 100%;
     }
 
-    .detail {
+    .detail, resto-review {
         width: 100%;
     }
 }

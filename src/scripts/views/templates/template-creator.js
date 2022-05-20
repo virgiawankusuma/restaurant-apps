@@ -71,6 +71,15 @@ const createRestoDetailTemplate = (resto) => `
   </div>
 `;
 
+const createRestoReviewTemplate = (reviews) => `
+  <div class="review">
+    <p>
+    <span class="name">${reviews.name}</span> &bull; <span class="date">${reviews.date}</span>
+    </p>
+    <p>${reviews.review}</p>
+  </div>
+`;
+
 const createFavoriteButtonTemplate = () => `
   <button aria-label="favorite this restaurant" id="favoriteButton" class="favorite">
      <i class="far fa-heart" aria-hidden="true"></i>
@@ -86,6 +95,7 @@ const createFavoritedButtonTemplate = () => `
 export {
   createRestoItemTemplate,
   createRestoDetailTemplate,
+  createRestoReviewTemplate,
   createFavoriteButtonTemplate,
   createFavoritedButtonTemplate,
 };

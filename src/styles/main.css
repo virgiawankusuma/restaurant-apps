@@ -101,7 +101,7 @@ nav a:hover{
 }
 
 .menu-list {
-    margin: 24px 0;
+    margin: 16px 0;
     display: flex;
 }
 
@@ -204,14 +204,16 @@ main {
     flex-direction: column;
 }
 
-.detail {
+.detail, resto-review {
     width: 70%;
     display: flex;
     flex-direction: column;
     margin: 32px auto ;
 }
 
-.detail h2 {
+.detail h2,
+.review h2
+{
     margin-bottom: 0 !important;
 }
 
@@ -240,6 +242,22 @@ main {
 
 .detail .info ul li {
     margin-bottom: 8px;
+}
+
+.review {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.review .name {
+    font-weight: 600;
+}
+
+.review .date {
+    font-size: small;
+    color: gray;
 }
 
 .card {
