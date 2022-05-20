@@ -51,7 +51,7 @@ body {
     background-color: #C36A2D;
     color: #FBFBFB;
     padding: 8px;
-    z-index: 101;
+    z-index: 999999;
 }
 
 .skip-link:hover {
@@ -86,7 +86,10 @@ nav h1 {
 
 nav h1 a {
     text-decoration: none;
-    font-size: 2rem;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-block;
+    line-height: 44px;
 }
 
 nav a:hover{
@@ -98,13 +101,12 @@ nav a:hover{
 }
 
 .menu-list {
-    font-size: 18px;
     margin: 24px 0;
     display: flex;
 }
 
 .menu-list li {
-    padding: 0 0 0 10px;
+    padding: 0 10px;
     margin-left: 10px;
     list-style-type: none;
     display: inline-block;
@@ -113,6 +115,10 @@ nav a:hover{
 .menu-list a {
     color: #E2C275;
     text-decoration: none;
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-block;
+    line-height: 44px;
 }
 
 .menu-list a:hover,
@@ -263,9 +269,11 @@ main {
 }
 
 .card-title a {
-    font-size: 2rem;
     font-weight: 600;
+    min-height: 44px;
+    min-width: 44px;
     text-decoration: none;
+    display: inline-block;
 }
 
 .card-text {
@@ -294,6 +302,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-block;
 }
 
 footer {
@@ -307,6 +319,10 @@ footer {
 footer a {
     text-decoration: none;
     color: #FBFBFB;
+    min-height: 44px;
+    min-width: 44px;
+    line-height: 44px;
+    display: inline-block;
 }
 
 footer a:hover,

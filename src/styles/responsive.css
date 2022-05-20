@@ -55,7 +55,7 @@
     }
     
     .menu-list a {
-        font-size: 2.1rem;
+        font-size: 1.5rem;
         color: #FBFBFB;
     }
     
@@ -65,14 +65,14 @@
 
     .menu-button {
         margin: auto 0;
-        width: 48px;
-        height: 48px;
+        min-width: 44px;
+        min-height: 44px;
         border: 0;
         border-radius: 3px;
         background-color: #FBFBFB;
         color: #E2C275;
         outline: none;
-        font-size: 2rem;
+        font-size: 1.25rem;
         display: block;
         z-index: 2;
         cursor: pointer;
