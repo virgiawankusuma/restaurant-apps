@@ -30,8 +30,8 @@ const FavoriteRestaurantDB = {
   async deleteRestaurant(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
   },
-  async searchRestaurant(query) {
-    return (await this.getAllRestaurant()).filter((restaurant) => {
+  async searchRestaurants(query) {
+    return (await this.getAllRestaurants()).filter((restaurant) => {
       const loweredCaseRestaurantTitle = (restaurant.title || '-').toLowerCase();
       const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, '');
 

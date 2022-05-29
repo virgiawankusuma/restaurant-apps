@@ -1,21 +1,18 @@
 import FavoriteRestaurantDB from '../../data/favoriterestaurant-db';
-import { createRestoItemTemplate } from '../templates/template-creator';
+import FavoriteRestaurantSearchView from './favorited-restaurants/favorite-restaurant-search-view';
+import FavoriteRestaurantShowPresenter from './favorited-restaurants/favorite-restaurant-show-presenter';
+import FavoriteRestaurantSearchPresenter from './favorited-restaurants/favorite-restaurant-search-presenter';
 
-import '../../component/resto-favorite';
+const view = new FavoriteRestaurantSearchView();
 
 const Favorite = {
   async render() {
-    return `
-      <resto-favorite></resto-favorite>
-    `;
+    return view.getTemplate();
   },
 
   async afterRender() {
-    const restaurants = await FavoriteRestaurantDB.getAllRestaurants();
-    const restaurantsContainer = document.querySelector('#resto-list');
-    restaurants.forEach((restaurant) => {
-      restaurantsContainer.innerHTML += createRestoItemTemplate(restaurant);
-    });
+    new FavoriteRestaurantShowPresenter({ view, favoriteRestaurants: FavoriteRestaurantDB });
+    new FavoriteRestaurantSearchPresenter({ view, favoriteRestaurants: FavoriteRestaurantDB });
   },
 };
 
