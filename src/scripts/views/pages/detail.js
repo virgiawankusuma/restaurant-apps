@@ -6,7 +6,7 @@ import FavoriteButtonInitiator from '../../utils/favorite-btn-initiator';
 import '../../component/resto-detail';
 import '../../component/resto-review';
 
-const Explore = {
+const Detail = {
   async render() {
     return `
       <resto-detail></resto-detail>
@@ -15,8 +15,7 @@ const Explore = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurantById = await RestaurantSource.detailResto(url.id);
-    const detail = restaurantById.restaurant;
+    const detail = await RestaurantSource.detailResto(url.id);
     const restoContainer = document.querySelector('#resto-detail');
     restoContainer.innerHTML = createRestoDetailTemplate(detail);
 
@@ -43,4 +42,4 @@ const Explore = {
   },
 };
 
-export default Explore;
+export default Detail;
