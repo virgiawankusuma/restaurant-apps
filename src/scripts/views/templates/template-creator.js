@@ -9,7 +9,7 @@ const createRestoItemTemplate = (resto) => `
                       Kota ${resto.city}
                   </span>
               </div>
-              <img src="${resto.pictureId ? CONFIG.BASE_IMAGE_URL + resto.pictureId : 'images/heros/hero-image_2.jpg'}" alt="${resto.name}">
+              <img class="lazyload" src="${resto.pictureId ? CONFIG.BASE_IMAGE_URL + resto.pictureId : 'images/heros/hero-image_2.jpg'}" alt="${resto.name}">
           </div>
           <div class="card-body">
               <div class="rating">
@@ -31,7 +31,7 @@ const createRestoDetailTemplate = (resto) => `
     <h1 class="title" id="resto-title">
       ${resto.name}
     </h1>
-    <img src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" alt="${resto.name}" />
+    <img class="lazyload" src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" alt="${resto.name}" />
 
     <div class="info">
       <h2>Information</h2>
