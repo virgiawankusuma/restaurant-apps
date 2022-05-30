@@ -8,6 +8,7 @@ const view = new FavoriteRestaurantSearchView();
 const Favorite = {
   async render() {
     return view.getTemplate();
+    // return `<resto-favorite></resto-favorite>`;
   },
 
   async afterRender() {

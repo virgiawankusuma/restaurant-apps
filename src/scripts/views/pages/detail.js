@@ -31,7 +31,7 @@ const Detail = {
 
     FavoriteButtonInitiator.init({
       favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
-      favoriteRestaurant: FavoriteRestaurantDB,
+      favoriteRestaurants: FavoriteRestaurantDB,
       restaurant: {
         id: detail.id,
         name: detail.name,
