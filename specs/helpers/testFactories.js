@@ -3,7 +3,7 @@ import FavoriteRestaurantDB from '../../src/scripts/data/favoriterestaurant-db';
 
 const createFavoriteButtonPresenterWithRestaurant = async (restaurant) => {
   await FavoriteButtonInitiator.init({
-    FavoriteButtonContainer: document.querySelector('#FavoriteButtonContainer'),
+    favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
     favoriteRestaurants: FavoriteRestaurantDB,
     restaurant,
   });

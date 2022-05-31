@@ -3,16 +3,18 @@ import { createRestoItemTemplate } from '../../templates/template-creator';
 class FavoriteRestaurantSearchView {
   getTemplate() {
     return `
-      <input id="query" type="text">
       <h2>
         <span class="title-content">Your Favorited Restaurant</span>
       </h2>
-      <div id="resto-list" class="row resto-list"></div>
+      <div id="restaurant-search-container">
+        <input id="query" class="search-box" type="search" placeholder="Search for a restaurant" aria-label="Search for a restaurant">
+        <div id="resto-list" class="row resto-list"></div>
+      </div>
     `;
   }
 
   runWhenUserIsSearching(callback) {
-    document.getElementById('query').addEventListener('change', (event) => {
+    document.querySelector('#query').addEventListener('change', (event) => {
       callback(event.target.value);
     });
   }

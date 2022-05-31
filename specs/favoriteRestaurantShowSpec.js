@@ -16,54 +16,54 @@ describe('Showing all favorite restaurants', () => {
 
   describe('When no restaurants have been favorited', () => {
     it('should ask for the favorite restaurants', () => {
-      const favoriteRestaurant = spyOnAllFunctions(FavoriteRestaurantDB);
+      const favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantDB);
 
       new FavoriteRestaurantShowPresenter({
         view,
-        favoriteRestaurant,
+        favoriteRestaurants,
       });
 
-      expect(favoriteRestaurant.getAllRestaurant).toHaveBeenCalledTimes(1);
+      expect(favoriteRestaurants.getAllRestaurants).toHaveBeenCalledTimes(1);
     });
 
     it('should show the information that no restaurants have been favorited', (done) => {
-      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
+      document.getElementById('resto-list').addEventListener('resto-list:updated', () => {
         expect(document.querySelectorAll('#resto-item__not__found').length)
           .toEqual(1);
 
         done();
       });
 
-      const favoriteRestaurant = spyOnAllFunctions(FavoriteRestaurantDB);
-      favoriteRestaurant.getAllRestaurant.and.returnValues([]);
+      const favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantDB);
+      favoriteRestaurants.getAllRestaurants.and.returnValues([]);
 
       new FavoriteRestaurantShowPresenter({
         view,
-        favoriteRestaurant,
+        favoriteRestaurants,
       });
     });
   });
 
   describe('When favorite restaurants exist', () => {
     it('should show the restaurants', (done) => {
-      document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
+      document.getElementById('resto-list').addEventListener('resto-list:updated', () => {
         expect(document.querySelectorAll('#resto-item').length).toEqual(2);
         done();
       });
 
-      const favoriteRestaurant = spyOnAllFunctions(FavoriteRestaurantDB);
-      favoriteRestaurant.getAllRestaurant.and.returnValues([
+      const favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantDB);
+      favoriteRestaurants.getAllRestaurants.and.returnValues([
         {
-          id: 11, title: 'A', vote_average: 3, overview: 'Sebuah resto A',
+          id: 11, name: 'A', vote_average: 3, overview: 'Sebuah resto A',
         },
         {
-          id: 22, title: 'B', vote_average: 4, overview: 'Sebuah resto B',
+          id: 22, name: 'B', vote_average: 4, overview: 'Sebuah resto B',
         },
       ]);
 
       new FavoriteRestaurantShowPresenter({
         view,
-        favoriteRestaurant,
+        favoriteRestaurants,
       });
     });
   });

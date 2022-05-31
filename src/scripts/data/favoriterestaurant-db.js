@@ -11,7 +11,7 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 
 const FavoriteRestaurantDB = {
   async getRestaurant(id) {
-    if(!id) {
+    if (!id) {
       return;
     }
 
@@ -24,7 +24,7 @@ const FavoriteRestaurantDB = {
     if (!restaurant.hasOwnProperty('id')) {
       return;
     }
-    
+
     return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
   },
   async deleteRestaurant(id) {
@@ -32,7 +32,7 @@ const FavoriteRestaurantDB = {
   },
   async searchRestaurants(query) {
     return (await this.getAllRestaurants()).filter((restaurant) => {
-      const loweredCaseRestaurantTitle = (restaurant.title || '-').toLowerCase();
+      const loweredCaseRestaurantTitle = (restaurant.name || '-').toLowerCase();
       const jammedRestaurantTitle = loweredCaseRestaurantTitle.replace(/\s/g, '');
 
       const loweredCaseQuery = query.toLowerCase();

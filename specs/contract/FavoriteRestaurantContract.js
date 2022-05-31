@@ -1,28 +1,28 @@
-const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
+const itActsAsFavoriteRestaurantModel = (favoriteRestaurants) => {
   it('should return the Restaurant that has been added', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1 });
-    favoriteRestaurant.putRestaurant({ id: 2 });
+    favoriteRestaurants.putRestaurant({ id: 1 });
+    favoriteRestaurants.putRestaurant({ id: 2 });
 
-    expect(await favoriteRestaurant.getRestaurant(1))
+    expect(await favoriteRestaurants.getRestaurant(1))
       .toEqual({ id: 1 });
-    expect(await favoriteRestaurant.getRestaurant(2))
+    expect(await favoriteRestaurants.getRestaurant(2))
       .toEqual({ id: 2 });
-    expect(await favoriteRestaurant.getRestaurant(3))
+    expect(await favoriteRestaurants.getRestaurant(3))
       .toEqual(undefined);
   });
 
   it('should refuse a Restaurant from being added if it does not have the correct property', async () => {
-    favoriteRestaurant.putRestaurant({ aProperty: 'property' });
+    favoriteRestaurants.putRestaurant({ aProperty: 'property' });
 
-    expect(await favoriteRestaurant.getAllRestaurants())
+    expect(await favoriteRestaurants.getAllRestaurants())
       .toEqual([]);
   });
 
   it('can return all of the Restaurants that have been added', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1 });
-    favoriteRestaurant.putRestaurant({ id: 2 });
+    favoriteRestaurants.putRestaurant({ id: 1 });
+    favoriteRestaurants.putRestaurant({ id: 2 });
 
-    expect(await favoriteRestaurant.getAllRestaurants())
+    expect(await favoriteRestaurants.getAllRestaurants())
       .toEqual([
         { id: 1 },
         { id: 2 },
@@ -30,13 +30,13 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
   });
 
   it('should remove favorite Restaurant', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1 });
-    favoriteRestaurant.putRestaurant({ id: 2 });
-    favoriteRestaurant.putRestaurant({ id: 3 });
+    favoriteRestaurants.putRestaurant({ id: 1 });
+    favoriteRestaurants.putRestaurant({ id: 2 });
+    favoriteRestaurants.putRestaurant({ id: 3 });
 
-    await favoriteRestaurant.deleteRestaurant(1);
+    await favoriteRestaurants.deleteRestaurant(1);
 
-    expect(await favoriteRestaurant.getAllRestaurants())
+    expect(await favoriteRestaurants.getAllRestaurants())
       .toEqual([
         { id: 2 },
         { id: 3 },
@@ -44,13 +44,13 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
   });
 
   it('should handle request to remove a Restaurant even though the Restaurant has not been added', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1 });
-    favoriteRestaurant.putRestaurant({ id: 2 });
-    favoriteRestaurant.putRestaurant({ id: 3 });
+    favoriteRestaurants.putRestaurant({ id: 1 });
+    favoriteRestaurants.putRestaurant({ id: 2 });
+    favoriteRestaurants.putRestaurant({ id: 3 });
 
-    await favoriteRestaurant.deleteRestaurant(4);
+    await favoriteRestaurants.deleteRestaurant(4);
 
-    expect(await favoriteRestaurant.getAllRestaurants())
+    expect(await favoriteRestaurants.getAllRestaurants())
       .toEqual([
         { id: 1 },
         { id: 2 },
@@ -59,15 +59,15 @@ const itActsAsFavoriteRestaurantModel = (favoriteRestaurant) => {
   });
 
   it('should be able to search for restaurants', async () => {
-    favoriteRestaurant.putRestaurant({ id: 1, title: 'resto a' });
-    favoriteRestaurant.putRestaurant({ id: 2, title: 'resto b' });
-    favoriteRestaurant.putRestaurant({ id: 3, title: 'resto abc' });
-    favoriteRestaurant.putRestaurant({ id: 4, title: 'ini mah resto abcd' });
+    favoriteRestaurants.putRestaurant({ id: 1, name: 'resto a' });
+    favoriteRestaurants.putRestaurant({ id: 2, name: 'resto b' });
+    favoriteRestaurants.putRestaurant({ id: 3, name: 'resto abc' });
+    favoriteRestaurants.putRestaurant({ id: 4, name: 'ini mah resto abcd' });
 
-    expect(await favoriteRestaurant.searchRestaurant('resto a')).toEqual([
-      { id: 1, title: 'resto a' },
-      { id: 3, title: 'resto abc' },
-      { id: 4, title: 'ini mah resto abcd' },
+    expect(await favoriteRestaurants.searchRestaurants('resto a')).toEqual([
+      { id: 1, name: 'resto a' },
+      { id: 3, name: 'resto abc' },
+      { id: 4, name: 'ini mah resto abcd' },
     ]);
   });
 };

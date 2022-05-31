@@ -14,7 +14,6 @@ class RestaurantSource {
 
     return responseJson.restaurant;
   }
-  
 }
 
 export default RestaurantSource;

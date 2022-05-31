@@ -4,10 +4,10 @@ import FavoriteRestaurantSearchView from '../src/scripts/views/pages/favorited-r
 
 describe('Searching restaurants', () => {
   let presenter;
-  let favoriteRestaurant;
+  let favoriteRestaurants;
   let view;
 
-  const searchRestaurant = (query) => {
+  const searchRestaurants = (query) => {
     const queryElement = document.getElementById('query');
     queryElement.value = query;
     queryElement.dispatchEvent(new Event('change'));
@@ -18,9 +18,9 @@ describe('Searching restaurants', () => {
     document.body.innerHTML = view.getTemplate();
   };
   const constructPresenter = () => {
-    favoriteRestaurant = spyOnAllFunctions(FavoriteRestaurantDB);
+    favoriteRestaurants = spyOnAllFunctions(FavoriteRestaurantDB);
     presenter = new FavoriteRestaurantSearchPresenter({
-      favoriteRestaurant,
+      favoriteRestaurants,
       view,
     });
   };
@@ -32,50 +32,50 @@ describe('Searching restaurants', () => {
 
   describe('When query is not empty', () => {
     it('should be able to capture the query typed by the user', () => {
-      searchRestaurant('resto a');
+      searchRestaurants('resto a');
 
       expect(presenter.latestQuery).toEqual('resto a');
     });
 
     it('should ask the model to search for favorited restaurants', () => {
-      searchRestaurant('resto a');
+      searchRestaurants('resto a');
 
-      expect(favoriteRestaurant.searchRestaurant).toHaveBeenCalledWith('resto a');
+      expect(favoriteRestaurants.searchRestaurants).toHaveBeenCalledWith('resto a');
     });
 
     it('should show - when the restaurant returned does not contain a title', (done) => {
-      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
-        const restaurantTitles = document.querySelectorAll('.resto-title');
+      document.getElementById('restaurant-search-container').addEventListener('resto-list:searched:updated', () => {
+        const restaurantTitles = document.querySelectorAll('#resto-title');
         expect(restaurantTitles.item(0).textContent).toEqual('-');
 
         done();
       });
 
-      favoriteRestaurant.searchRestaurant.withArgs('resto a').and.returnValues([
+      favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([
         { id: 444 },
       ]);
 
-      searchRestaurant('resto a');
+      searchRestaurants('resto a');
     });
 
     it('should show the restaurants found by Favorite Restaurants', (done) => {
-      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
-        expect(document.querySelectorAll('.restaurant').length).toEqual(3);
+      document.getElementById('restaurant-search-container').addEventListener('resto-list:searched:updated', () => {
+        expect(document.querySelectorAll('#resto-list').length).toEqual(3);
         done();
       });
 
-      favoriteRestaurant.searchRestaurant.withArgs('resto a').and.returnValues([
-        { id: 111, title: 'resto abc' },
-        { id: 222, title: 'ada juga resto abcde' },
-        { id: 333, title: 'ini juga boleh resto a' },
+      favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([
+        { id: 111, name: 'resto abc' },
+        { id: 222, name: 'ada juga resto abcde' },
+        { id: 333, name: 'ini juga boleh resto a' },
       ]);
 
-      searchRestaurant('resto a');
+      searchRestaurants('resto a');
     });
 
     it('should show the name of the restaurants found by Favorite restaurants', (done) => {
-      document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
-        const restaurantTitles = document.querySelectorAll('.resto-title');
+      document.getElementById('restaurant-search-container').addEventListener('resto-list:searched:updated', () => {
+        const restaurantTitles = document.querySelectorAll('#resto-title');
         expect(restaurantTitles.item(0).textContent).toEqual('resto abc');
         expect(restaurantTitles.item(1).textContent).toEqual('ada juga resto abcde');
         expect(restaurantTitles.item(2).textContent).toEqual('ini juga boleh resto a');
@@ -83,35 +83,35 @@ describe('Searching restaurants', () => {
         done();
       });
 
-      favoriteRestaurant.searchRestaurant.withArgs('resto a').and.returnValues([
-        { id: 111, title: 'resto abc' },
-        { id: 222, title: 'ada juga resto abcde' },
-        { id: 333, title: 'ini juga boleh resto a' },
+      favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([
+        { id: 111, name: 'resto abc' },
+        { id: 222, name: 'ada juga resto abcde' },
+        { id: 333, name: 'ini juga boleh resto a' },
       ]);
 
-      searchRestaurant('resto a');
+      searchRestaurants('resto a');
     });
   });
 
   describe('When query is empty', () => {
     it('should capture the query as empty', () => {
-      searchRestaurant(' ');
+      searchRestaurants(' ');
       expect(presenter.latestQuery.length).toEqual(0);
 
-      searchRestaurant('    ');
+      searchRestaurants('    ');
       expect(presenter.latestQuery.length).toEqual(0);
 
-      searchRestaurant('');
+      searchRestaurants('');
       expect(presenter.latestQuery.length).toEqual(0);
 
-      searchRestaurant('\t');
+      searchRestaurants('\t');
       expect(presenter.latestQuery.length).toEqual(0);
     });
 
     it('should show all favorite restaurants', () => {
-      searchRestaurant('    ');
+      searchRestaurants('    ');
 
-      expect(favoriteRestaurant.getAllRestaurant)
+      expect(favoriteRestaurants.getAllRestaurants)
         .toHaveBeenCalled();
     });
   });
@@ -119,26 +119,26 @@ describe('Searching restaurants', () => {
   describe('When no favorite restaurant could be found', () => {
     it('should show the empty message', (done) => {
       document.getElementById('restaurant-search-container')
-        .addEventListener('restaurants:searched:updated', () => {
+        .addEventListener('resto-list:searched:updated', () => {
           expect(document.querySelectorAll('#resto-item__not__found').length)
             .toEqual(1);
           done();
         });
 
-      favoriteRestaurant.searchRestaurant.withArgs('resto a').and.returnValues([]);
+      favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([]);
 
-      searchRestaurant('resto a');
+      searchRestaurants('resto a');
     });
   });
 
   it('should not show any restaurant', (done) => {
-    document.getElementById('restaurant-search-container').addEventListener('restaurants:searched:updated', () => {
-      expect(document.querySelectorAll('.restaurant').length).toEqual(0);
+    document.getElementById('restaurant-search-container').addEventListener('resto-list:searched:updated', () => {
+      expect(document.querySelectorAll('#resto-list').length).toEqual(0);
       done();
     });
 
-    favoriteRestaurant.searchRestaurant.withArgs('resto a').and.returnValues([]);
+    favoriteRestaurants.searchRestaurants.withArgs('resto a').and.returnValues([]);
 
-    searchRestaurant('resto a');
+    searchRestaurants('resto a');
   });
 });

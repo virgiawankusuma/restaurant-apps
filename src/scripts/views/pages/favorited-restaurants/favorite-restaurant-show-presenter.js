@@ -1,7 +1,7 @@
 class FavoriteRestaurantShowPresenter {
-  constructor({ favoriteRestaurants, view }) {
-    this._favoriteRestaurants = favoriteRestaurants;
+  constructor({ view, favoriteRestaurants }) {
     this._view = view;
+    this._favoriteRestaurants = favoriteRestaurants;
 
     this._showFavoriteRestaurants();
   }
