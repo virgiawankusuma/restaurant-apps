@@ -265,6 +265,7 @@ main {
     background-color: #FBFBFB;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 7px 0px;
     flex: 1;
+    height: 360px;
 }
 
 .card .city-label {
@@ -279,7 +280,7 @@ main {
 
 .card img {
     width: 100%;
-    max-height: 250px;
+    max-height: 220px;
     object-fit: cover;
 }
 
@@ -297,6 +298,11 @@ main {
 
 .card-text {
     color: #C36A2D;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 .card .rating {
