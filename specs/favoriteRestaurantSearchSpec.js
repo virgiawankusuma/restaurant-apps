@@ -1,5 +1,5 @@
 import FavoriteRestaurantSearchPresenter from '../src/scripts/views/pages/favorited-restaurants/favorite-restaurant-search-presenter';
-import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb';
+import FavoriteRestaurantDB from '../src/scripts/data/favoriterestaurant-db';
 import FavoriteRestaurantSearchView from '../src/scripts/views/pages/favorited-restaurants/favorite-restaurant-search-view';
 
 describe('Searching restaurants', () => {
@@ -18,7 +18,7 @@ describe('Searching restaurants', () => {
     document.body.innerHTML = view.getTemplate();
   };
   const constructPresenter = () => {
-    favoriteRestaurant = spyOnAllFunctions(FavoriteRestaurantIdb);
+    favoriteRestaurant = spyOnAllFunctions(FavoriteRestaurantDB);
     presenter = new FavoriteRestaurantSearchPresenter({
       favoriteRestaurant,
       view,
