@@ -1,7 +1,7 @@
 import CONFIG from '../../globals/config';
 
 const createRestoItemTemplate = (resto) => `
-  <div class="col">
+  <div class="col" id="resto-item">
       <div class="card">
           <div class="card-img">
               <div class="city-label">
@@ -9,14 +9,14 @@ const createRestoItemTemplate = (resto) => `
                       Kota ${resto.city}
                   </span>
               </div>
-              <img src="${resto.pictureId ? CONFIG.BASE_IMAGE_URL + resto.pictureId : 'images/heros/hero-image_2.jpg'}" alt="${resto.name}">
+              <img class="lazyload" data-src="${resto.pictureId ? CONFIG.BASE_IMAGE_URL + resto.pictureId : 'images/heros/hero-image_2.jpg'}" alt="${resto.name}">
           </div>
           <div class="card-body">
               <div class="rating">
                   <i class="fas fa-star"></i>
                   <span>${resto.rating}</span>
               </div>
-              <h3 class="card-title">
+              <h3 class="card-title" id="resto-title">
                   <a href="./#/detail/${resto.id}" title="Link ke halaman detail makanan">${resto.name}</a>
               </h3>
               <p class="card-text">${resto.description}</p>
@@ -28,10 +28,10 @@ const createRestoItemTemplate = (resto) => `
 const createRestoDetailTemplate = (resto) => `
   <div class="detail">
   
-    <h1 class="title">
+    <h1 class="title" id="resto-title">
       ${resto.name}
     </h1>
-    <img src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" alt="${resto.name}" />
+    <img class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL + resto.pictureId}" alt="${resto.name}" />
 
     <div class="info">
       <h2>Information</h2>

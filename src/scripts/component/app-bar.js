@@ -16,7 +16,7 @@ class AppBar extends HTMLElement {
       <ul class="menu-list">
           <li><a href="./" title="Link ke halaman home">Home</a></li>
           <li><a href="#/favorite" title="Link ke halaman favorite">Favorite</a></li>
-          <li><a href="http://link.virgiawan.id" title="Link ke about us" target="_blank" rel="noreferrer">About
+          <li><a href="https://www.linkedin.com/in/virgiawankusuma" title="Link ke about us" target="_blank" rel="noreferrer">About
                   Us</a></li>
       </ul>
     </nav>

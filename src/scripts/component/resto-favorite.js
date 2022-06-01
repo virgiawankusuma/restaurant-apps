@@ -9,7 +9,7 @@ class RestoFavorite extends HTMLElement {
       <span class="title-content">Favorite Restaurant</span>
     </h2>
 
-    <div id="resto-list" class="row"></div>
+    <div id="resto-list" class="row resto-list"></div>
     `;
   }
 }
