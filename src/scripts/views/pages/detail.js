@@ -2,11 +2,12 @@ import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurant-source';
 import { createRestoDetailTemplate, createRestoReviewTemplate } from '../templates/template-creator';
 import FavoriteButtonInitiator from '../../utils/favorite-btn-initiator';
+import FavoriteRestaurantDB from '../../data/favoriterestaurant-db';
 
 import '../../component/resto-detail';
 import '../../component/resto-review';
 
-const Explore = {
+const Detail = {
   async render() {
     return `
       <resto-detail></resto-detail>
@@ -15,8 +16,7 @@ const Explore = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurantById = await RestaurantSource.detailResto(url.id);
-    const detail = restaurantById.restaurant;
+    const detail = await RestaurantSource.detailResto(url.id);
     const restoContainer = document.querySelector('#resto-detail');
     restoContainer.innerHTML = createRestoDetailTemplate(detail);
 
@@ -31,6 +31,7 @@ const Explore = {
 
     FavoriteButtonInitiator.init({
       favoriteButtonContainer: document.querySelector('#favoriteButtonContainer'),
+      favoriteRestaurants: FavoriteRestaurantDB,
       restaurant: {
         id: detail.id,
         name: detail.name,
@@ -43,4 +44,4 @@ const Explore = {
   },
 };
 
-export default Explore;
+export default Detail;

@@ -1,9 +1,15 @@
 # for production
 dist/
 specs/
+e2e/
 src/
 README.md
 karma.conf.js
+codecept.conf.js
+jsconfig.json
+sharp.js
+steps.d.ts
+step_files.js
 package-lock.json
 package.json
 webpack.common.js
