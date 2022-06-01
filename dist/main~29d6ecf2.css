@@ -264,6 +264,7 @@ main {
     background-color: #FBFBFB;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 7px 0px;
     flex: 1;
+    height: 360px;
 }
 
 .card .city-label {
@@ -278,7 +279,7 @@ main {
 
 .card img {
     width: 100%;
-    max-height: 250px;
+    max-height: 220px;
     object-fit: cover;
 }
 
@@ -296,6 +297,11 @@ main {
 
 .card-text {
     color: #C36A2D;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 .card .rating {
@@ -304,6 +310,34 @@ main {
     font-weight: 600;
     margin-bottom: .5em;
 }
+
+.search-box {
+    margin-bottom: 1rem;
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    min-height: 44px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #EADCA6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.search-box:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #E2C275;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(226, 194, 117, 0.25);
+  }
 
 .favorite {
     font-size: 18px;

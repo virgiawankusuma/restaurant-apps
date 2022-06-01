@@ -7,6 +7,7 @@ var serviceWorkerOption = {
     "/main~29d6ecf2.bundle.js",
     "/favicon.png",
     "/manifest.json",
+    "/images/Color Hunt Palette c36a2de2c275eadca6fbfbfb.png",
     "/icons/icon-128x128.png",
     "/icons/icon-144x144.png",
     "/icons/icon-152x152.png",
@@ -15,7 +16,6 @@ var serviceWorkerOption = {
     "/icons/icon-512x512.png",
     "/icons/icon-72x72.png",
     "/icons/icon-96x96.png",
-    "/images/Color Hunt Palette c36a2de2c275eadca6fbfbfb.png",
     "/index.html"
   ]
 };
